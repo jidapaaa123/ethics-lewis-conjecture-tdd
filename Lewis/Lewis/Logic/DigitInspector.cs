@@ -6,38 +6,42 @@ namespace Lewis.Logic
 {
     public class DigitInspector
     {
-        public int Number { get; set; }
-        public DigitInspector(int number)
+        public long Number { get; set; }
+        public DigitInspector(long number)
         {
             if (number < 0)
             {
-                throw new ArgumentException("Only positive integers are accepted.", nameof(number));
+                throw new ArgumentException("Only positive longegers are accepted.", nameof(number));
             }
 
             Number = number;
         }
 
-        public int DigitSum()
+        public long DigitSum()
         {
             string numStr = Number.ToString();
+            long sum = 0;
             foreach (char c in numStr)
             {
-                // Intentionally left incomplete for testing purposes
+                long charNum = long.Parse(c.ToString());
+                sum += charNum;
             }
-            
-            throw new NotImplementedException();
+
+            return sum;
         }
 
-        public int DigitRoot()
+        public long DigitRoot()
         {
             string digitSumStr = DigitSum().ToString();
 
             while (digitSumStr.Length > 1)
             {
-                // Intentionally left incomplete for testing purposes
+                digitSumStr = new DigitInspector(long.Parse(digitSumStr))
+                    .DigitSum()
+                    .ToString();
             }
 
-            throw new NotImplementedException();
+            return long.Parse(digitSumStr);
         }
 
     }

@@ -8,7 +8,7 @@ namespace TestProject1
         [Fact]
         public void Scrambler_AllPermutations_AllDistinctDigits()
         {
-            int og = 123;
+            long og = 123;
             Scrambler scrambler = new Scrambler(og);
 
             var expectedPermutations = new HashSet<string> { "123", "132", "213", "231", "312", "321"};
@@ -19,7 +19,7 @@ namespace TestProject1
         [Fact]
         public void Scrambler_AllPermutations_AllDuplicateDigits()
         {
-            int og = 111;
+            long og = 111;
             Scrambler scrambler = new Scrambler(og);
 
             var expectedPermutations = new HashSet<string> { "111" };
@@ -30,7 +30,7 @@ namespace TestProject1
         [Fact]
         public void Scrambler_AllPermutations_SomeDuplicateDigits()
         {
-            int og = 112;
+            long og = 112;
             Scrambler scrambler = new Scrambler(og);
 
             var expectedPermutations = new HashSet<string> { "112", "121", "211" };
